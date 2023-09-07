@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
@@ -25,8 +26,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.firstButton.setTitle("Produits", for: .normal)
+        //self.firstButton.addTarget(self, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
     }
 
+    @IBAction func navigateToProduct(_ sender: Any) {
+        
+        if let productController = storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController{
+            
+            navigationController?.pushViewController(productController, animated: true)
+            print("GO PRODUCT")
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
+    
 
 }
 

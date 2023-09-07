@@ -7,5 +7,7 @@ target 'admin' do
 
   # Pods for admin
 pod 'Alamofire'
+pod 'SwiftyJSON', '~> 4.0'
+
 
 end

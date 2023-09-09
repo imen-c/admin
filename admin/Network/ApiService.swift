@@ -18,23 +18,7 @@ final class ApiService{
         let instance = ApiService()
         return instance
     }()
-//    let manager : Session
-//
-//    init(){
-//        let configuration = URLSessionConfiguration.default
-//        manager = Session(configuration: configuration, delegate: SessionDelegate())
-//
-//        manager.delegate.sessionDidReceiveChallenge = { session, challenge in
-//            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-//                return (.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
-//            }
-//            return (.performDefaultHandling, nil)
-//        }
-//
-//
-//    }
-    
-    
+
     func getProduct(completion:@escaping(Result<[Product], Error>) ->Void){
         let url = endpoint + "productAll"
         
@@ -47,15 +31,23 @@ final class ApiService{
                         completion(.failure(error))
                     }
                 }
+    }
+    func deleteOneProduct(id: Int, completion:@escaping(Result<MessageJson ,Error>)->Void){
+        let url = endpoint + "productDesactivate"
+        let parameters: [String: Any] = ["id": id]
         
         
-        
-        
-        
+        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseDecodable(of: MessageJson.self)
+        { response in
+                switch response.result {
+                case .success(let deleteResponse):
+                    completion(.success(deleteResponse))
+                    print("Suppression réussie")
+                case .failure(let error):
+
+                    print("Erreur de suppression : \(error)")
+                }
+            }
         
     }
-    
-    
-    
-    
 }

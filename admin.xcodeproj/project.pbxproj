@@ -19,6 +19,8 @@
 		1F1FA8312AAA798700BB5565 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1FA82F2AAA798700BB5565 /* ProductCell.xib */; };
 		1F1FA8342AAA8A3B00BB5565 /* ProductViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA8332AAA8A3B00BB5565 /* ProductViewPresenter.swift */; };
 		1F1FA8362AAA8AB800BB5565 /* ProductViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA8352AAA8AB800BB5565 /* ProductViewProtocol.swift */; };
+		1F1FA8382AABD56200BB5565 /* MessageJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA8372AABD56200BB5565 /* MessageJson.swift */; };
+		1F1FA83A2AAD32D800BB5565 /* ModalEditProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA8392AAD32D800BB5565 /* ModalEditProduct.swift */; };
 		1F5D80972AA68A15001B83DB /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5D80962AA68A15001B83DB /* ProductViewController.swift */; };
 		1F5D80992AA69090001B83DB /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5D80982AA69090001B83DB /* AddProductViewController.swift */; };
 		1F71FD092AA923110060FB26 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71FD082AA923110060FB26 /* ApiService.swift */; };
@@ -42,6 +44,8 @@
 		1F1FA82F2AAA798700BB5565 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		1F1FA8332AAA8A3B00BB5565 /* ProductViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewPresenter.swift; sourceTree = "<group>"; };
 		1F1FA8352AAA8AB800BB5565 /* ProductViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewProtocol.swift; sourceTree = "<group>"; };
+		1F1FA8372AABD56200BB5565 /* MessageJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageJson.swift; sourceTree = "<group>"; };
+		1F1FA8392AAD32D800BB5565 /* ModalEditProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalEditProduct.swift; sourceTree = "<group>"; };
 		1F5D80962AA68A15001B83DB /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		1F5D80982AA69090001B83DB /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		1F71FD082AA923110060FB26 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				1F0D0EE42AA557D4000552AD /* Assets.xcassets */,
 				1F0D0EE62AA557D4000552AD /* LaunchScreen.storyboard */,
 				1F0D0EE92AA557D4000552AD /* Info.plist */,
+				1F1FA8392AAD32D800BB5565 /* ModalEditProduct.swift */,
 			);
 			path = admin;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			children = (
 				1F1FA8292AA934D800BB5565 /* Product.swift */,
 				1F1FA82B2AA9376D00BB5565 /* Category.swift */,
+				1F1FA8372AABD56200BB5565 /* MessageJson.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,9 +282,11 @@
 				1F71FD0B2AA927970060FB26 /* DataManager.swift in Sources */,
 				1F1FA82C2AA9376D00BB5565 /* Category.swift in Sources */,
 				1F1FA8342AAA8A3B00BB5565 /* ProductViewPresenter.swift in Sources */,
+				1F1FA83A2AAD32D800BB5565 /* ModalEditProduct.swift in Sources */,
 				1F5D80992AA69090001B83DB /* AddProductViewController.swift in Sources */,
 				1F1FA8302AAA798700BB5565 /* ProductCell.swift in Sources */,
 				1F5D80972AA68A15001B83DB /* ProductViewController.swift in Sources */,
+				1F1FA8382AABD56200BB5565 /* MessageJson.swift in Sources */,
 				1F1FA8362AAA8AB800BB5565 /* ProductViewProtocol.swift in Sources */,
 				1F0D0EDE2AA557D3000552AD /* SceneDelegate.swift in Sources */,
 			);

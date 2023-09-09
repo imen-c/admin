@@ -34,6 +34,20 @@ final class DataManager{
             }
         }
     }
+    func deleteOneProduct(id: Int, completion: @escaping (MessageJson?) -> Void){
+        ApiService.instance.deleteOneProduct(id: id) {response in
+           
+                switch response{
+                case .success(let response):
+                    print("📗 Success Delete Product")
+                    completion(response)
+                    
+                case .failure(let error):
+                    print("Erreur: \(error.localizedDescription)")
+                    completion(nil)
+                }
+        }
+    }
     
     
 }

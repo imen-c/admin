@@ -18,7 +18,7 @@ class ProductViewPresenter{
     }
     
     func getProducts(){
-        print("je passe dans presenter")
+        
         DataManager.instance.getProducts(completion: {
             response in
             guard let response = response else {
@@ -30,5 +30,19 @@ class ProductViewPresenter{
             self.view?.OnGetProductSuccess(response: response)
             
         })
+    }
+    
+    func deleteOneProduct(id:Int){
+        DataManager.instance.deleteOneProduct(id: id, completion: {
+            response in
+            guard let response = response else {
+                self.view?.onDeleteOneProductError()
+                print("Error Delete Product presenter")
+                return
+            }
+            print("SUCCESS delete product presenter")
+            self.view?.OnDeleteOneProductSuccess(response: response)
+        })
+        
     }
 }

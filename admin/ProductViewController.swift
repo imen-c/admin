@@ -70,7 +70,64 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+ 
+    
+
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            tableView.beginUpdates()
+            var item = productList[indexPath.row]
+            self.presenter?.deleteOneProduct(id: item.id!)
+            productList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            tableView.endUpdates()
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = productList[indexPath.row]
+        
+        let btnModify = UIContextualAction(style: .normal, title: "Mofifier"){(action,view,completion) in
+            self.presentModal()
+            
+            completion(true)
+            
+        }
+        let btnDelete = UIContextualAction(style: .normal, title: "Supprimer"){(action,view,completion) in
+            
+            let alert = UIAlertController(title: "Attention", message: "Êtes-vous sûr de vouloir supprimer ce contenu ? ", preferredStyle: UIAlertController.Style.alert)
+            
+            alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Oui", style: .destructive, handler: { alert in
+                self.presenter?.deleteOneProduct(id: item.id!)
+                self.productList.remove(at: indexPath.row)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+            completion(true)
+            
+        }
+        btnDelete.backgroundColor = .red
+        let config = UISwipeActionsConfiguration(actions: [btnModify,btnDelete])
+        
+        return config
+    }
+    
+    func presentModal(){
+        guard let modal = storyboard?.instantiateViewController(withIdentifier: "ModalEditProduct") as? ModalEditProduct else{return}
+        
+        modal.modalPresentationStyle = .currentContext
+        self.present(modal,animated: true, completion: nil)
+                
     }
     
     
@@ -78,6 +135,16 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
     
 }
 extension ProductViewController : ProductViewProtocol{
+    func OnDeleteOneProductSuccess(response: MessageJson) {
+        print("📗 Delete product")
+        print(response.message)
+        self.tableView.reloadData()
+    }
+    
+    func onDeleteOneProductError() {
+        print("📕 Delete Products")
+    }
+    
     func OnGetProductSuccess(response: [Product]) {
         print("📗 Get Products")
         self.productList = response

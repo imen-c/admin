@@ -21,6 +21,9 @@
 		1F1FA8362AAA8AB800BB5565 /* ProductViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA8352AAA8AB800BB5565 /* ProductViewProtocol.swift */; };
 		1F1FA8382AABD56200BB5565 /* MessageJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA8372AABD56200BB5565 /* MessageJson.swift */; };
 		1F1FA83A2AAD32D800BB5565 /* ModalEditProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA8392AAD32D800BB5565 /* ModalEditProduct.swift */; };
+		1F1FA83D2AAE661B00BB5565 /* InputImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA83C2AAE661B00BB5565 /* InputImageView.swift */; };
+		1F1FA83F2AAE680000BB5565 /* extView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA83E2AAE680000BB5565 /* extView.swift */; };
+		1F1FA8412AAE686600BB5565 /* InputImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1FA8402AAE686600BB5565 /* InputImageView.xib */; };
 		1F5D80972AA68A15001B83DB /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5D80962AA68A15001B83DB /* ProductViewController.swift */; };
 		1F5D80992AA69090001B83DB /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5D80982AA69090001B83DB /* AddProductViewController.swift */; };
 		1F71FD092AA923110060FB26 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71FD082AA923110060FB26 /* ApiService.swift */; };
@@ -46,6 +49,9 @@
 		1F1FA8352AAA8AB800BB5565 /* ProductViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewProtocol.swift; sourceTree = "<group>"; };
 		1F1FA8372AABD56200BB5565 /* MessageJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageJson.swift; sourceTree = "<group>"; };
 		1F1FA8392AAD32D800BB5565 /* ModalEditProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalEditProduct.swift; sourceTree = "<group>"; };
+		1F1FA83C2AAE661B00BB5565 /* InputImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputImageView.swift; sourceTree = "<group>"; };
+		1F1FA83E2AAE680000BB5565 /* extView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extView.swift; sourceTree = "<group>"; };
+		1F1FA8402AAE686600BB5565 /* InputImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputImageView.xib; sourceTree = "<group>"; };
 		1F5D80962AA68A15001B83DB /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		1F5D80982AA69090001B83DB /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		1F71FD082AA923110060FB26 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 		1F0D0EDA2AA557D3000552AD /* admin */ = {
 			isa = PBXGroup;
 			children = (
+				1F1FA83B2AAE65E300BB5565 /* Utils */,
 				1F1FA8322AAA8A1000BB5565 /* Presenter */,
 				1F1FA82D2AAA790C00BB5565 /* Cell */,
 				1F1FA8282AA934BD00BB5565 /* Model */,
@@ -131,6 +138,16 @@
 				1F1FA8352AAA8AB800BB5565 /* ProductViewProtocol.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1F1FA83B2AAE65E300BB5565 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1F1FA83C2AAE661B00BB5565 /* InputImageView.swift */,
+				1F1FA83E2AAE680000BB5565 /* extView.swift */,
+				1F1FA8402AAE686600BB5565 /* InputImageView.xib */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		1F71FD072AA7EDE00060FB26 /* Network */ = {
@@ -219,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1FA8412AAE686600BB5565 /* InputImageView.xib in Resources */,
 				1F0D0EE82AA557D4000552AD /* LaunchScreen.storyboard in Resources */,
 				1F1FA8312AAA798700BB5565 /* ProductCell.xib in Resources */,
 				1F0D0EE52AA557D4000552AD /* Assets.xcassets in Resources */,
@@ -279,10 +297,12 @@
 				1F1FA82A2AA934D800BB5565 /* Product.swift in Sources */,
 				1F0D0EDC2AA557D3000552AD /* AppDelegate.swift in Sources */,
 				1F71FD092AA923110060FB26 /* ApiService.swift in Sources */,
+				1F1FA83F2AAE680000BB5565 /* extView.swift in Sources */,
 				1F71FD0B2AA927970060FB26 /* DataManager.swift in Sources */,
 				1F1FA82C2AA9376D00BB5565 /* Category.swift in Sources */,
 				1F1FA8342AAA8A3B00BB5565 /* ProductViewPresenter.swift in Sources */,
 				1F1FA83A2AAD32D800BB5565 /* ModalEditProduct.swift in Sources */,
+				1F1FA83D2AAE661B00BB5565 /* InputImageView.swift in Sources */,
 				1F5D80992AA69090001B83DB /* AddProductViewController.swift in Sources */,
 				1F1FA8302AAA798700BB5565 /* ProductCell.swift in Sources */,
 				1F5D80972AA68A15001B83DB /* ProductViewController.swift in Sources */,

@@ -33,12 +33,32 @@ class ModalEditProduct: UIViewController{
     @IBOutlet weak var editXXL: UITextField!
     @IBOutlet weak var categoryTitle: UILabel!
     @IBOutlet weak var categoryPickerView: UIPickerView!
-    
     @IBOutlet weak var isActiveLabel: UILabel!
     @IBOutlet weak var isActiveButton: UISwitch!
-    
     @IBOutlet weak var cancelButton: UIButton!
-    
     @IBOutlet weak var confirmButton: UIButton!
+    
+    var productToEdit = Product()
+    
+    
+    
+    override func viewDidLoad() {
+        
+        self.editName.text = productToEdit.name
+        self.editDescription.text = productToEdit.description
+        self.editPrice.text = productToEdit.price
+        self.editQuantity.text = productToEdit.price
+        self.editS.text = String(productToEdit.sizeS)
+        self.editM.text = String(productToEdit.sizeM)
+        self.editL.text = String(productToEdit.sizeL)
+        self.editXL.text = String(productToEdit.sizeXL)
+        self.editXXL.text = String(productToEdit.sizeXXL)
+        
+    }
+    
+    func configure( item: Product){
+        productToEdit = item
+       
+    }
     
 }

@@ -34,7 +34,7 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var categoryTitle: UILabel!
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var addCategoryButton: UIButton!
-    @IBOutlet weak var imageInputView: UIView!
+    @IBOutlet weak var imageInputView: InputImageView!
     @IBOutlet weak var confirmButton: UIButton!
     
     override func viewDidLoad() {

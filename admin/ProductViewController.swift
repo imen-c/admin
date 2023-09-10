@@ -65,7 +65,11 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
         cell.sizeL.text = String(productList[indexPath.row].sizeL)
         cell.sizeXL.text = String(productList[indexPath.row].sizeXL)
         cell.sizeXXL.text = String(productList[indexPath.row].sizeXXL)
-        cell.price.text = productList[indexPath.row].price
+        
+        if let price = productList[indexPath.row].price{
+            cell.price.text = String(price)
+        }
+        
         
         return cell
     }
@@ -97,7 +101,8 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
         let item = productList[indexPath.row]
         
         let btnModify = UIContextualAction(style: .normal, title: "Mofifier"){(action,view,completion) in
-            self.presentModal()
+            self.presentModal(item: item)
+            
             
             completion(true)
             
@@ -122,9 +127,9 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
         return config
     }
     
-    func presentModal(){
+    func presentModal(item : Product){
         guard let modal = storyboard?.instantiateViewController(withIdentifier: "ModalEditProduct") as? ModalEditProduct else{return}
-        
+        modal.configure(item: item)
         modal.modalPresentationStyle = .currentContext
         self.present(modal,animated: true, completion: nil)
                 

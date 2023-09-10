@@ -391,7 +391,7 @@
                                             <constraint firstAttribute="height" constant="50" id="zu9-1C-4ce"/>
                                         </constraints>
                                     </pickerView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GW5-aF-Lfc">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GW5-aF-Lfc" customClass="InputImageView" customModule="admin" customModuleProvider="target">
                                         <rect key="frame" x="60" y="140.5" width="380" height="170"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>

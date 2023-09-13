@@ -24,10 +24,14 @@
 		1F1FA83D2AAE661B00BB5565 /* InputImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA83C2AAE661B00BB5565 /* InputImageView.swift */; };
 		1F1FA83F2AAE680000BB5565 /* extView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA83E2AAE680000BB5565 /* extView.swift */; };
 		1F1FA8412AAE686600BB5565 /* InputImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1FA8402AAE686600BB5565 /* InputImageView.xib */; };
+		1F1FA8432AAE7AA700BB5565 /* AddProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA8422AAE7AA700BB5565 /* AddProductPresenter.swift */; };
+		1F1FA8452AAE7AB700BB5565 /* AddProductProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FA8442AAE7AB700BB5565 /* AddProductProtocol.swift */; };
 		1F5D80972AA68A15001B83DB /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5D80962AA68A15001B83DB /* ProductViewController.swift */; };
 		1F5D80992AA69090001B83DB /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5D80982AA69090001B83DB /* AddProductViewController.swift */; };
 		1F71FD092AA923110060FB26 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71FD082AA923110060FB26 /* ApiService.swift */; };
 		1F71FD0B2AA927970060FB26 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71FD0A2AA927970060FB26 /* DataManager.swift */; };
+		1F8F47EB2AB1285A005B0DA5 /* EditModalProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47EA2AB1285A005B0DA5 /* EditModalProductPresenter.swift */; };
+		1F8F47ED2AB12875005B0DA5 /* EditModalProductProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47EC2AB12875005B0DA5 /* EditModalProductProtocol.swift */; };
 		EB5F4940ACC808AC21855FFA /* Pods_admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A295E929C1629FD61A9E144C /* Pods_admin.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,10 +56,14 @@
 		1F1FA83C2AAE661B00BB5565 /* InputImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputImageView.swift; sourceTree = "<group>"; };
 		1F1FA83E2AAE680000BB5565 /* extView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extView.swift; sourceTree = "<group>"; };
 		1F1FA8402AAE686600BB5565 /* InputImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputImageView.xib; sourceTree = "<group>"; };
+		1F1FA8422AAE7AA700BB5565 /* AddProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductPresenter.swift; sourceTree = "<group>"; };
+		1F1FA8442AAE7AB700BB5565 /* AddProductProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductProtocol.swift; sourceTree = "<group>"; };
 		1F5D80962AA68A15001B83DB /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		1F5D80982AA69090001B83DB /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		1F71FD082AA923110060FB26 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		1F71FD0A2AA927970060FB26 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		1F8F47EA2AB1285A005B0DA5 /* EditModalProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalProductPresenter.swift; sourceTree = "<group>"; };
+		1F8F47EC2AB12875005B0DA5 /* EditModalProductProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalProductProtocol.swift; sourceTree = "<group>"; };
 		A295E929C1629FD61A9E144C /* Pods_admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B704FD661D68C4ABE4B55221 /* Pods-admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-admin.release.xcconfig"; path = "Target Support Files/Pods-admin/Pods-admin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,13 +109,13 @@
 				1F0D0EDB2AA557D3000552AD /* AppDelegate.swift */,
 				1F0D0EDD2AA557D3000552AD /* SceneDelegate.swift */,
 				1F5D80962AA68A15001B83DB /* ProductViewController.swift */,
+				1F1FA8392AAD32D800BB5565 /* ModalEditProduct.swift */,
 				1F5D80982AA69090001B83DB /* AddProductViewController.swift */,
 				1F0D0EDF2AA557D3000552AD /* ViewController.swift */,
 				1F0D0EE12AA557D3000552AD /* Main.storyboard */,
 				1F0D0EE42AA557D4000552AD /* Assets.xcassets */,
 				1F0D0EE62AA557D4000552AD /* LaunchScreen.storyboard */,
 				1F0D0EE92AA557D4000552AD /* Info.plist */,
-				1F1FA8392AAD32D800BB5565 /* ModalEditProduct.swift */,
 			);
 			path = admin;
 			sourceTree = "<group>";
@@ -136,6 +144,10 @@
 			children = (
 				1F1FA8332AAA8A3B00BB5565 /* ProductViewPresenter.swift */,
 				1F1FA8352AAA8AB800BB5565 /* ProductViewProtocol.swift */,
+				1F1FA8422AAE7AA700BB5565 /* AddProductPresenter.swift */,
+				1F1FA8442AAE7AB700BB5565 /* AddProductProtocol.swift */,
+				1F8F47EA2AB1285A005B0DA5 /* EditModalProductPresenter.swift */,
+				1F8F47EC2AB12875005B0DA5 /* EditModalProductProtocol.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -296,15 +308,19 @@
 				1F0D0EE02AA557D3000552AD /* ViewController.swift in Sources */,
 				1F1FA82A2AA934D800BB5565 /* Product.swift in Sources */,
 				1F0D0EDC2AA557D3000552AD /* AppDelegate.swift in Sources */,
+				1F1FA8432AAE7AA700BB5565 /* AddProductPresenter.swift in Sources */,
 				1F71FD092AA923110060FB26 /* ApiService.swift in Sources */,
+				1F8F47EB2AB1285A005B0DA5 /* EditModalProductPresenter.swift in Sources */,
 				1F1FA83F2AAE680000BB5565 /* extView.swift in Sources */,
 				1F71FD0B2AA927970060FB26 /* DataManager.swift in Sources */,
 				1F1FA82C2AA9376D00BB5565 /* Category.swift in Sources */,
 				1F1FA8342AAA8A3B00BB5565 /* ProductViewPresenter.swift in Sources */,
 				1F1FA83A2AAD32D800BB5565 /* ModalEditProduct.swift in Sources */,
+				1F8F47ED2AB12875005B0DA5 /* EditModalProductProtocol.swift in Sources */,
 				1F1FA83D2AAE661B00BB5565 /* InputImageView.swift in Sources */,
 				1F5D80992AA69090001B83DB /* AddProductViewController.swift in Sources */,
 				1F1FA8302AAA798700BB5565 /* ProductCell.swift in Sources */,
+				1F1FA8452AAE7AB700BB5565 /* AddProductProtocol.swift in Sources */,
 				1F5D80972AA68A15001B83DB /* ProductViewController.swift in Sources */,
 				1F1FA8382AABD56200BB5565 /* MessageJson.swift in Sources */,
 				1F1FA8362AAA8AB800BB5565 /* ProductViewProtocol.swift in Sources */,

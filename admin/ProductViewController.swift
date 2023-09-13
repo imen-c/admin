@@ -68,7 +68,10 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
         
         if let price = productList[indexPath.row].price{
             cell.price.text = String(price)
+            
         }
+        
+        
         
         
         return cell

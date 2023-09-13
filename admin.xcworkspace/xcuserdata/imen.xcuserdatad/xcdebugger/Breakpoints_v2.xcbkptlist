@@ -20,5 +20,53 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26E30B8A-C945-4005-BA5F-3B3B5C796F3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "admin/Network/ApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "editProduct(product:catId:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "26E30B8A-C945-4005-BA5F-3B3B5C796F3A - 57e59de0abc6fd11"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "admin.ApiService.editProduct(product: admin.Product, catId: Swift.Int, completion: (Swift.Result&lt;admin.MessageJson, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "admin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/imen/Documents/TFE/admin/admin/admin/Network/ApiService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "504">
+               </Location>
+               <Location
+                  uuid = "26E30B8A-C945-4005-BA5F-3B3B5C796F3A - 57e59de0abc6fd11"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "admin.ApiService.editProduct(product: admin.Product, catId: Swift.Int, completion: (Swift.Result&lt;admin.MessageJson, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "admin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/imen/Documents/TFE/admin/admin/admin/Network/ApiService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "464">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

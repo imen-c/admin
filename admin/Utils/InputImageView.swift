@@ -49,14 +49,14 @@ class InputImageView: UIView, UIImagePickerControllerDelegate,UINavigationContro
     }
     
     @IBAction func onValidateButtonTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "PICTURE_TITLE", message: "PICTURE_MESSAGE", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "GENERIC_TEXT_CAMERA", style: .default, handler: {(action: UIAlertAction) in
+        let alert = UIAlertController(title: "Séléction d'image", message: "D'où provient votre image ?", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Appareil photo", style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .camera)
         }))
-        alert.addAction(UIAlertAction(title: "GENERIC_TEXT_GALLERY", style: .default, handler: {(action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Galerie", style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .photoLibrary)
         }))
-        alert.addAction(UIAlertAction(title: "GENERIC_BUTTON_CLOSE", style: .cancel, handler: {(action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Fermer", style: .cancel, handler: {(action: UIAlertAction) in
             if self.image.image == nil {
                 //self.addPictureButton.setTitleColor(Style.Color.red, for: .normal)
                // self.addPictureButton.tintColor = Style.Color.red

@@ -49,5 +49,37 @@ final class DataManager{
         }
     }
     
+    func addOneProduct(product: Product,catId: Int,  completion: @escaping (MessageJson?) -> Void){
+        ApiService.instance.addOneProduct(product: product,catId: catId, completion: { response in
+            switch response{
+            case .success(let response):
+                completion(response)
+            case .failure( _):
+                completion(nil)
+            }
+        })
+    }
+    func editProduct(product: Product,catId: Int,  completion: @escaping (MessageJson?) -> Void){
+        ApiService.instance.editProduct(product: product,catId: catId, completion: { response in
+            switch response{
+            case .success(let response):
+                completion(response)
+            case .failure( _):
+                completion(nil)
+            }
+        })
+    }
+    
+    func uploadImage(product: Product,  completion: @escaping (String?) -> Void){
+        ApiService.instance.sendReport(report: product, completion: { response in
+            switch response{
+            case .success(let response):
+                completion(response)
+            case .failure( _):
+                completion(nil)
+            }
+        })
+    }
+    
     
 }

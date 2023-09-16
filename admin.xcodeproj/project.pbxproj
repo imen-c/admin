@@ -32,6 +32,19 @@
 		1F71FD0B2AA927970060FB26 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71FD0A2AA927970060FB26 /* DataManager.swift */; };
 		1F8F47EB2AB1285A005B0DA5 /* EditModalProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47EA2AB1285A005B0DA5 /* EditModalProductPresenter.swift */; };
 		1F8F47ED2AB12875005B0DA5 /* EditModalProductProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47EC2AB12875005B0DA5 /* EditModalProductProtocol.swift */; };
+		1F8F47EF2AB34E18005B0DA5 /* MessengerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47EE2AB34E18005B0DA5 /* MessengerController.swift */; };
+		1F8F47F12AB3C2B0005B0DA5 /* MessengerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47F02AB3C2B0005B0DA5 /* MessengerPresenter.swift */; };
+		1F8F47F32AB3C2C0005B0DA5 /* MessengerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47F22AB3C2C0005B0DA5 /* MessengerProtocol.swift */; };
+		1F8F47F52AB3C933005B0DA5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47F42AB3C933005B0DA5 /* Message.swift */; };
+		1F8F47F72AB3CA28005B0DA5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47F62AB3CA28005B0DA5 /* User.swift */; };
+		1F8F47FA2AB3CDAE005B0DA5 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47F82AB3CDAE005B0DA5 /* MessageCell.swift */; };
+		1F8F47FB2AB3CDAE005B0DA5 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8F47F92AB3CDAE005B0DA5 /* MessageCell.xib */; };
+		1F8F47FD2AB3CEEE005B0DA5 /* MessageDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47FC2AB3CEEE005B0DA5 /* MessageDetailController.swift */; };
+		1F8F48002AB49525005B0DA5 /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F47FE2AB49525005B0DA5 /* MessageViewCell.swift */; };
+		1F8F48012AB49525005B0DA5 /* MessageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8F47FF2AB49525005B0DA5 /* MessageViewCell.xib */; };
+		1F8F48032AB4D22C005B0DA5 /* ReadOnlyMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F48022AB4D22C005B0DA5 /* ReadOnlyMessageController.swift */; };
+		1F8F48052AB51764005B0DA5 /* MessengerDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F48042AB51763005B0DA5 /* MessengerDetailProtocol.swift */; };
+		1F8F48072AB5193C005B0DA5 /* MessengerDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F48062AB5193C005B0DA5 /* MessengerDetailPresenter.swift */; };
 		EB5F4940ACC808AC21855FFA /* Pods_admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A295E929C1629FD61A9E144C /* Pods_admin.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +77,19 @@
 		1F71FD0A2AA927970060FB26 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1F8F47EA2AB1285A005B0DA5 /* EditModalProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalProductPresenter.swift; sourceTree = "<group>"; };
 		1F8F47EC2AB12875005B0DA5 /* EditModalProductProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalProductProtocol.swift; sourceTree = "<group>"; };
+		1F8F47EE2AB34E18005B0DA5 /* MessengerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerController.swift; sourceTree = "<group>"; };
+		1F8F47F02AB3C2B0005B0DA5 /* MessengerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerPresenter.swift; sourceTree = "<group>"; };
+		1F8F47F22AB3C2C0005B0DA5 /* MessengerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerProtocol.swift; sourceTree = "<group>"; };
+		1F8F47F42AB3C933005B0DA5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		1F8F47F62AB3CA28005B0DA5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1F8F47F82AB3CDAE005B0DA5 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		1F8F47F92AB3CDAE005B0DA5 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		1F8F47FC2AB3CEEE005B0DA5 /* MessageDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailController.swift; sourceTree = "<group>"; };
+		1F8F47FE2AB49525005B0DA5 /* MessageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewCell.swift; sourceTree = "<group>"; };
+		1F8F47FF2AB49525005B0DA5 /* MessageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageViewCell.xib; sourceTree = "<group>"; };
+		1F8F48022AB4D22C005B0DA5 /* ReadOnlyMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadOnlyMessageController.swift; sourceTree = "<group>"; };
+		1F8F48042AB51763005B0DA5 /* MessengerDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerDetailProtocol.swift; sourceTree = "<group>"; };
+		1F8F48062AB5193C005B0DA5 /* MessengerDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerDetailPresenter.swift; sourceTree = "<group>"; };
 		A295E929C1629FD61A9E144C /* Pods_admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B704FD661D68C4ABE4B55221 /* Pods-admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-admin.release.xcconfig"; path = "Target Support Files/Pods-admin/Pods-admin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +133,7 @@
 				1F1FA8282AA934BD00BB5565 /* Model */,
 				1F71FD072AA7EDE00060FB26 /* Network */,
 				1F0D0EDB2AA557D3000552AD /* AppDelegate.swift */,
+				1F8F47EE2AB34E18005B0DA5 /* MessengerController.swift */,
 				1F0D0EDD2AA557D3000552AD /* SceneDelegate.swift */,
 				1F5D80962AA68A15001B83DB /* ProductViewController.swift */,
 				1F1FA8392AAD32D800BB5565 /* ModalEditProduct.swift */,
@@ -116,6 +143,8 @@
 				1F0D0EE42AA557D4000552AD /* Assets.xcassets */,
 				1F0D0EE62AA557D4000552AD /* LaunchScreen.storyboard */,
 				1F0D0EE92AA557D4000552AD /* Info.plist */,
+				1F8F47FC2AB3CEEE005B0DA5 /* MessageDetailController.swift */,
+				1F8F48022AB4D22C005B0DA5 /* ReadOnlyMessageController.swift */,
 			);
 			path = admin;
 			sourceTree = "<group>";
@@ -126,6 +155,8 @@
 				1F1FA8292AA934D800BB5565 /* Product.swift */,
 				1F1FA82B2AA9376D00BB5565 /* Category.swift */,
 				1F1FA8372AABD56200BB5565 /* MessageJson.swift */,
+				1F8F47F42AB3C933005B0DA5 /* Message.swift */,
+				1F8F47F62AB3CA28005B0DA5 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +166,10 @@
 			children = (
 				1F1FA82E2AAA798700BB5565 /* ProductCell.swift */,
 				1F1FA82F2AAA798700BB5565 /* ProductCell.xib */,
+				1F8F47F82AB3CDAE005B0DA5 /* MessageCell.swift */,
+				1F8F47F92AB3CDAE005B0DA5 /* MessageCell.xib */,
+				1F8F47FE2AB49525005B0DA5 /* MessageViewCell.swift */,
+				1F8F47FF2AB49525005B0DA5 /* MessageViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -148,6 +183,10 @@
 				1F1FA8442AAE7AB700BB5565 /* AddProductProtocol.swift */,
 				1F8F47EA2AB1285A005B0DA5 /* EditModalProductPresenter.swift */,
 				1F8F47EC2AB12875005B0DA5 /* EditModalProductProtocol.swift */,
+				1F8F47F02AB3C2B0005B0DA5 /* MessengerPresenter.swift */,
+				1F8F47F22AB3C2C0005B0DA5 /* MessengerProtocol.swift */,
+				1F8F48042AB51763005B0DA5 /* MessengerDetailProtocol.swift */,
+				1F8F48062AB5193C005B0DA5 /* MessengerDetailPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -248,7 +287,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8F48012AB49525005B0DA5 /* MessageViewCell.xib in Resources */,
 				1F1FA8412AAE686600BB5565 /* InputImageView.xib in Resources */,
+				1F8F47FB2AB3CDAE005B0DA5 /* MessageCell.xib in Resources */,
 				1F0D0EE82AA557D4000552AD /* LaunchScreen.storyboard in Resources */,
 				1F1FA8312AAA798700BB5565 /* ProductCell.xib in Resources */,
 				1F0D0EE52AA557D4000552AD /* Assets.xcassets in Resources */,
@@ -307,22 +348,33 @@
 			files = (
 				1F0D0EE02AA557D3000552AD /* ViewController.swift in Sources */,
 				1F1FA82A2AA934D800BB5565 /* Product.swift in Sources */,
+				1F8F47F32AB3C2C0005B0DA5 /* MessengerProtocol.swift in Sources */,
+				1F8F47F72AB3CA28005B0DA5 /* User.swift in Sources */,
+				1F8F48052AB51764005B0DA5 /* MessengerDetailProtocol.swift in Sources */,
 				1F0D0EDC2AA557D3000552AD /* AppDelegate.swift in Sources */,
 				1F1FA8432AAE7AA700BB5565 /* AddProductPresenter.swift in Sources */,
 				1F71FD092AA923110060FB26 /* ApiService.swift in Sources */,
+				1F8F48032AB4D22C005B0DA5 /* ReadOnlyMessageController.swift in Sources */,
 				1F8F47EB2AB1285A005B0DA5 /* EditModalProductPresenter.swift in Sources */,
+				1F8F47F12AB3C2B0005B0DA5 /* MessengerPresenter.swift in Sources */,
+				1F8F48072AB5193C005B0DA5 /* MessengerDetailPresenter.swift in Sources */,
 				1F1FA83F2AAE680000BB5565 /* extView.swift in Sources */,
 				1F71FD0B2AA927970060FB26 /* DataManager.swift in Sources */,
 				1F1FA82C2AA9376D00BB5565 /* Category.swift in Sources */,
+				1F8F47EF2AB34E18005B0DA5 /* MessengerController.swift in Sources */,
 				1F1FA8342AAA8A3B00BB5565 /* ProductViewPresenter.swift in Sources */,
 				1F1FA83A2AAD32D800BB5565 /* ModalEditProduct.swift in Sources */,
 				1F8F47ED2AB12875005B0DA5 /* EditModalProductProtocol.swift in Sources */,
+				1F8F47FD2AB3CEEE005B0DA5 /* MessageDetailController.swift in Sources */,
 				1F1FA83D2AAE661B00BB5565 /* InputImageView.swift in Sources */,
 				1F5D80992AA69090001B83DB /* AddProductViewController.swift in Sources */,
 				1F1FA8302AAA798700BB5565 /* ProductCell.swift in Sources */,
+				1F8F48002AB49525005B0DA5 /* MessageViewCell.swift in Sources */,
 				1F1FA8452AAE7AB700BB5565 /* AddProductProtocol.swift in Sources */,
 				1F5D80972AA68A15001B83DB /* ProductViewController.swift in Sources */,
 				1F1FA8382AABD56200BB5565 /* MessageJson.swift in Sources */,
+				1F8F47F52AB3C933005B0DA5 /* Message.swift in Sources */,
+				1F8F47FA2AB3CDAE005B0DA5 /* MessageCell.swift in Sources */,
 				1F1FA8362AAA8AB800BB5565 /* ProductViewProtocol.swift in Sources */,
 				1F0D0EDE2AA557D3000552AD /* SceneDelegate.swift in Sources */,
 			);

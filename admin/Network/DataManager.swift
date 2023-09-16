@@ -81,5 +81,31 @@ final class DataManager{
         })
     }
     
+    func getAllMessages(completion: @escaping ([Message]?) -> Void){
+        ApiService.instance.getAllMessages { result in
+            switch result {
+            case .success(let messageList):
+                
+                
+                completion(messageList)
+                print("📗 Get message DATAMANAGER")
+                
+            case .failure(let error):
+                
+                print("Erreur get messages: \(error.localizedDescription)")
+            }
+        }
+    }
+    func markIsRead(id: Int,  completion: @escaping (MessageJson?) -> Void){
+        ApiService.instance.markIsRead(id: id, completion: { response in
+            switch response{
+            case .success(let response):
+                completion(response)
+            case .failure( _):
+                completion(nil)
+            }
+        })
+    }
+    
     
 }

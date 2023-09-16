@@ -158,8 +158,49 @@ final class ApiService{
                                completion(.failure(error))
                            }
             }
-            
-            
         }
     }
+    
+    func getAllMessages(completion:@escaping(Result<[Message], Error>) ->Void){
+        let url = endpoint + "getAllMessages"
+        
+        AF.request(url, method: .get).responseDecodable(of:[Message].self) { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(.success(json.rawValue as! [Message]))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func markIsRead(id : Int, completion: @escaping (Swift.Result<MessageJson, Error>) -> Void) {
+        print("⬇️ Mark is Read Message")
+        let url = endpoint + "markIsRead"
+        
+        let payload = ["id" : id ] as [String : Int]
+        
+        
+        AF.request(url, method: .put, parameters: payload, encoding: JSONEncoding.default).responseDecodable(of: MessageJson.self)
+        { response in
+            switch response.result {
+            case .success(let addResponse):
+                completion(.success(addResponse))
+                print("Modification réussie")
+            case .failure(let error):
+                
+                print("Erreur d ajout : \(error)")
+                if let serverError = error as? AFError, let responseCode = serverError.responseCode {
+                    print("Code de réponse du serveur : \(responseCode)")
+                    print("Message d'erreur du serveur : \(serverError.localizedDescription)")
+                } else {
+                    print("Erreur inconnue : \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    
+    
 }

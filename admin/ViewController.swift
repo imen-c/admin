@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.firstButton.setTitle("Produits", for: .normal)
-        //self.firstButton.addTarget(self, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+
     }
 
     @IBAction func navigateToProduct(_ sender: Any) {
@@ -38,9 +38,17 @@ class ViewController: UIViewController {
             navigationController?.pushViewController(productController, animated: true)
             print("GO PRODUCT")
         }
-        
+    }
+    
+    @IBAction func navigateToMessage(_ sender: Any) {
+        if let messageController = storyboard?.instantiateViewController(withIdentifier: "MessengerController") as? MessengerController{
+            
+            navigationController?.pushViewController(messageController, animated: true)
+            print("GO MESSAGE")
+        }
         
     }
+    
     
     
     

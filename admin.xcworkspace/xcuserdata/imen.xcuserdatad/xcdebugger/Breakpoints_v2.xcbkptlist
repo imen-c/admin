@@ -71,62 +71,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "98229974-AF10-4F98-A537-0F6D32F8B009"
+            uuid = "31DACB10-8686-4F58-9BC9-9F3C738E0AAB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "admin/MessengerController.swift"
+            filePath = "admin/ReadOnlyMessageController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "reload()"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "dismissModal(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "98229974-AF10-4F98-A537-0F6D32F8B009 - 83fb4e19ca431f04"
+                  uuid = "31DACB10-8686-4F58-9BC9-9F3C738E0AAB - 320e3f58c7c715a7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "admin.MessengerController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; admin.MessengerController"
+                  symbolName = "admin.ReadOnlyMessageController.dismissModal(Any) -&gt; ()"
                   moduleName = "admin"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imen/Documents/TFE/admin/admin/admin/MessengerController.swift"
+                  urlString = "file:///Users/imen/Documents/TFE/admin/admin/admin/ReadOnlyMessageController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "148">
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "196">
                </Location>
                <Location
-                  uuid = "98229974-AF10-4F98-A537-0F6D32F8B009 - b91a1263175789b3"
+                  uuid = "31DACB10-8686-4F58-9BC9-9F3C738E0AAB - 320e3f58c7c715a7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "admin.MessengerController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;admin.MessengerController&gt;"
+                  symbolName = "admin.ReadOnlyMessageController.dismissModal(Any) -&gt; ()"
                   moduleName = "admin"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imen/Documents/TFE/admin/admin/admin/MessengerController.swift"
+                  urlString = "file:///Users/imen/Documents/TFE/admin/admin/admin/ReadOnlyMessageController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "98229974-AF10-4F98-A537-0F6D32F8B009 - 8d5e4f50785fa007"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "admin.MessengerController.reload() -&gt; ()"
-                  moduleName = "admin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imen/Documents/TFE/admin/admin/admin/MessengerController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "28">
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>

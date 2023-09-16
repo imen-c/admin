@@ -12,6 +12,9 @@ protocol MessengerProtocol : NSObjectProtocol{
     func OnGetAllMessageSuccess(response: [Message])
     func OnGetAllMessageError()
     
+    func OnDeleteError()
+    func OnDeleteSuccess()
+    
 
     
     

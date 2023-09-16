@@ -82,6 +82,7 @@ class ModalEditProduct: UIViewController, UITextFieldDelegate, UITextViewDelegat
         isActiveButton.addTarget(self, action: #selector(isActiveSwitchChange(_:)), for: .allTouchEvents)
         changeImageButton.addTarget(self, action: #selector(changeImageSwitchChange(_:)), for: .allTouchEvents)
         
+        UITextField.appearance().tintColor = .black
         self.editName.text = productToEdit.name
         self.editDescription.text = productToEdit.description
         if let price = productToEdit.price{

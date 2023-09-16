@@ -29,21 +29,31 @@ class ReadOnlyMessageController: UIViewController {
     @IBOutlet weak var checkButton: UIButton!
     
     weak var dismissDelegate: ReloadTableViewDelegate?
+    var message : Message?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.userTextView.delegate = self
+        self.adminTextView.delegate = self
+//        guard let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "MessengerController") as? MessengerController else {return}
+//                self.dismissDelegate = messageVC
+        if let mess = message{
+            self.emailLabel.text = mess.user.email
+            if let num = mess.subjectNumber{
+                self.numberSujbjectLabel.text = "numéro:" + String(num)
+            }
+            self.userTextView.text = mess.content
+            self.adminTextView.text = mess.responseContent
+            
+        }
 
-        // Do any additional setup after loading the view.
+
     }
     
     func configure(item: Message){
-        self.emailLabel.text = item.user.email
-        if let num = item.subjectNumber{
-            self.numberSujbjectLabel.text = String(num)
-        }
-        self.userTextView.text = item.content
-        //self.date
-        self.adminTextView.text = item.responseContent
+        self.message = item
+      
       
     }
     @IBAction func dismissModal(_ sender: Any) {
@@ -54,4 +64,8 @@ class ReadOnlyMessageController: UIViewController {
     
 
 
+}
+extension ReadOnlyMessageController: UITextViewDelegate{
+    
+    
 }

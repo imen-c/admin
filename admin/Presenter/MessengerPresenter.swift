@@ -30,6 +30,19 @@ class MessengerPresenter{
             
         })
     }
-    
+    func deleteOneMessage(id: Int){
+        DataManager.instance.deleteOneMessage( id: id,  completion: {
+            response in
+            guard let response = response else {
+                self.view?.OnDeleteError()
+                print("Error presentre")
+                return
+            }
+            print("SUCCESS PRESENTER", response)
+            self.view?.OnDeleteSuccess()
+            
+        })
+        
+    }
 
 }

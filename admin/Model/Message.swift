@@ -14,7 +14,7 @@ class Message: Decodable{
     var content: String?
     var isRead: Bool?
     var subjectNumber: Int?
-    //var createdAt : DateBackend
+    var createdAt : String?
     
     var response: Bool?
     var responseContent: String?

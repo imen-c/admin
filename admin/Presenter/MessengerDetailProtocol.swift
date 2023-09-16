@@ -11,5 +11,8 @@ protocol MessengerDetailProtocol: NSObjectProtocol{
     func OnMarkIsReadSuccess()
     func OnMarkIsReadError()
     
+    func OnSendMessageSuccess()
+    func OnSendMessageError()
+    
     
 }

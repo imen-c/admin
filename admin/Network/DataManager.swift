@@ -106,6 +106,27 @@ final class DataManager{
             }
         })
     }
+    func sendMessageResponse(id: Int,message: String,   completion: @escaping (MessageJson?) -> Void){
+        ApiService.instance.sendMessageResponse(id: id, message: message, completion: { response in
+            switch response{
+            case .success(let response):
+                completion(response)
+            case .failure( _):
+                completion(nil)
+            }
+        })
+    }
+    
+    func deleteOneMessage(id: Int, completion: @escaping (MessageJson?) -> Void){
+        ApiService.instance.deleteOneMessage(id: id,completion: { response in
+            switch response{
+            case .success(let response):
+                completion(response)
+            case .failure( _):
+                completion(nil)
+            }
+        })
+    }
     
     
 }

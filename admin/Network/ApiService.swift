@@ -201,6 +201,51 @@ final class ApiService{
         }
     }
     
+    func sendMessageResponse(id : Int,message: String, completion: @escaping (Swift.Result<MessageJson, Error>) -> Void) {
+        print("⬇️ SEND  Message  Response")
+        let url = endpoint + "sendAdminResponse"
+        
+        let payload = ["id" : id, "responseContent": message ] as [String : Any]
+        
+        
+        AF.request(url, method: .put, parameters: payload, encoding: JSONEncoding.default).responseDecodable(of: MessageJson.self)
+        { response in
+            switch response.result {
+            case .success(let addResponse):
+                completion(.success(addResponse))
+                print("Modification réussie")
+            case .failure(let error):
+                
+                print("Erreur d ajout : \(error)")
+                if let serverError = error as? AFError, let responseCode = serverError.responseCode {
+                    print("Code de réponse du serveur : \(responseCode)")
+                    print("Message d'erreur du serveur : \(serverError.localizedDescription)")
+                } else {
+                    print("Erreur inconnue : \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    func deleteOneMessage(id: Int, completion:@escaping(Result<MessageJson ,Error>)->Void){
+        let url = endpoint + "deleteMessage"
+        let parameters: [String: Any] = ["id": id]
+        
+        
+        AF.request(url, method: .delete, parameters: parameters, encoding: JSONEncoding.default).responseDecodable(of: MessageJson.self)
+        { response in
+            switch response.result {
+            case .success(let deleteResponse):
+                completion(.success(deleteResponse))
+                print("Suppression message réussie")
+            case .failure(let error):
+                
+                print("Erreur de suppression : \(error)")
+            }
+        }
+        
+    }
+    
     
     
 }

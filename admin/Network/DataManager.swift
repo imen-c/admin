@@ -128,5 +128,21 @@ final class DataManager{
         })
     }
     
+    func getAllUsers(completion: @escaping ([User]?) -> Void){
+        ApiService.instance.getAllUsers { result in
+            switch result {
+            case .success(let userList):
+                
+                
+                completion(userList)
+                print("📗 Get Users DATAMANAGER")
+                
+            case .failure(let error):
+                
+                print("Erreur get messages: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     
 }

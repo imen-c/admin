@@ -11,6 +11,9 @@ class User: Decodable{
     
     var id: Int?
     var email: String?
+    var name: String?
+    var ordersCount: Int?
+    var messageCount: Int?
     
     
     

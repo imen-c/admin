@@ -50,6 +50,15 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func navigateToUser(_ sender: Any) {
+        
+        
+        if let userController = storyboard?.instantiateViewController(withIdentifier: "UserController") as? UserController{
+            
+            navigationController?.pushViewController(userController, animated: true)
+            print("GO User")
+        }
+    }
     
     
     

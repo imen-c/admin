@@ -245,6 +245,19 @@ final class ApiService{
         }
         
     }
+    func getAllUsers(completion:@escaping(Result<[User], Error>) ->Void){
+        let url = endpoint + "getAllUsersForAdmin"
+        
+        AF.request(url, method: .get).responseDecodable(of:[User].self) { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(.success(json.rawValue as! [User]))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
     
     

@@ -60,8 +60,25 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func navigateToOrders(_ sender: Any) {
+        
+        
+        if let ordersController = storyboard?.instantiateViewController(withIdentifier: "OrdersController") as? OrdersController{
+            
+            navigationController?.pushViewController(ordersController, animated: true)
+            print("GO Orders")
+        }
+    }
     
     
+    @IBAction func navigateToDiffusion(_ sender: Any) {
+        
+        if let diffusionController = storyboard?.instantiateViewController(withIdentifier: "DiffusionController") as? DiffusionController{
+            
+            navigationController?.pushViewController(diffusionController, animated: true)
+            print("GO Diffusion")
+        }
+    }
     
     
 

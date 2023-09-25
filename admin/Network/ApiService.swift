@@ -258,6 +258,54 @@ final class ApiService{
             }
         }
     }
+    func getAllOrders(completion:@escaping(Result<OrderData, Error>) ->Void){
+        let url = endpoint + "getAllOrdersForAdmin"
+        
+        AF.request(url, method: .get).responseDecodable(of:OrderData.self) { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getAllStateOrder(completion:@escaping(Result<[StateOrder], Error>) ->Void){
+        let url = endpoint + "getAllStateOrder"
+        
+        AF.request(url, method: .get).responseDecodable(of:[StateOrder].self) { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func editOrder(orderId: Int,stateId : Int, completion: @escaping (Swift.Result<MessageJson, Error>) -> Void) {
+        print("⬇️ Edit Order")
+        let url = endpoint + "changeStateOrder"
+        
+        let payload = ["order" : orderId , "state": stateId]
+        
+        AF.request(url, method: .put, parameters: payload, encoding: JSONEncoding.default).responseDecodable(of: MessageJson.self)
+        { response in
+            switch response.result {
+            case .success(let response):
+                completion(.success(response))
+                print("Modification réussie")
+                print(response)
+            case .failure(let error):
+                
+                print("Erreur d ajout : \(error)")
+
+            }
+        }
+    }
     
     
     

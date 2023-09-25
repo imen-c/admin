@@ -107,37 +107,9 @@ class AddProductViewController: UIViewController, AddProductProtocol {
                 product.description = self.descriptionV
                 product.imageName = self.imageName
         
-        presenter?.addOneProduct(item: product, catId: 37)
-//        DataManager.instance.uploadImage(product: product, completion: { response in
-//                    guard response != nil else {
-//                         print("Erreur datamanager upload")
-//                         return
-//                    }
-//                     print("SUCCESS datamanager upload")
-//                 })
-        
+        presenter?.addOneProduct(item: product, catId: 46)
 
-        
-//        var product = Product(name: self.name,quantity: self.quantity, sizeS: self.S, sizeM: self.M,sizeL: self.L, sizeXL: self.XL, sizeXXL: self.XXL, price: self.price, imageUrl: strBase64, description: descriptionV )
-        
-//        if let name = self.name{
-//            product.name = name}
-//        product.description = self.descriptionV
-//        if let price = self.price{
-//            product.price = String(price)
-//        }
-//        product.quantity = self.quantity
-//        product.sizeS = self.S
-//        product.sizeM = self.M
-//        product.sizeL = self.L
-//        product.sizeXL = self.XL
-//        product.sizeXXL = self.XXL
-//
-        
-//        print("product a envoye")
-//        //print(product.imageUrl)
-//        self.presenter?.addOneProduct(item: product, catId: 31)
-//        strBase64 = ""
+
     }
     
     func onSendProductSuccess() {
@@ -174,7 +146,7 @@ extension AddProductViewController: UITextFieldDelegate,UITextViewDelegate{
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField == self.editName{
             guard let name = textField.text else{return}
             self.name = name
@@ -217,22 +189,25 @@ extension AddProductViewController: UITextFieldDelegate,UITextViewDelegate{
             textView.textColor = .darkText
         }
     }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        
-        self.descriptionV = textView.text
-        print("TextView text")
-        print(descriptionV!)
-        if textView.text == ""{
-            textView.text = "Décrivez ici le produit..."
-            //textView.textColor = UIColor(hexString: "CDCDCD")
-           //self.reportDescription = nil
-           // self.descriptionTextView.layer.borderColor = Style.Color.red.cgColor
-        } else {
+    
+        func textViewDidChange(_ textView: UITextView) {
+            
             self.descriptionV = textView.text
-            //self.descriptionTextView.layer.borderColor = UIColor(named: "CDCDCD")?.cgColor
+            print("TextView text")
+            print(descriptionV!)
+            if textView.text == ""{
+                textView.text = "Décrivez ici le produit..."
+                //textView.textColor = UIColor(hexString: "CDCDCD")
+                //self.reportDescription = nil
+                // self.descriptionTextView.layer.borderColor = Style.Color.red.cgColor
+            } else {
+                //self.descriptionV = textView.text
+                //self.descriptionTextView.layer.borderColor = UIColor(named: "CDCDCD")?.cgColor
+                self.descriptionV = textView.text
+            }
+            //self.validReport()
         }
-       //self.validReport()
-    }
+
     
     
     

@@ -143,6 +143,48 @@ final class DataManager{
             }
         }
     }
+    func getAllOrders(completion: @escaping (OrderData?) -> Void){
+        ApiService.instance.getAllOrders { result in
+            switch result {
+            case .success(let orderList):
+                
+                
+                completion(orderList)
+                print("📗 Get Orders DATAMANAGER")
+                
+            case .failure(let error):
+                
+                print("Erreur get messages: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func getAllStateOrder(completion: @escaping ([StateOrder]?) -> Void){
+        ApiService.instance.getAllStateOrder { result in
+            switch result {
+            case .success(let response):
+                
+                
+                completion(response)
+                print("📗 Get State DATAMANAGER")
+                
+            case .failure(let error):
+                
+                print("Erreur get state: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func editOrder(orderId: Int, stateId: Int,  completion: @escaping (MessageJson?) -> Void){
+        ApiService.instance.editOrder(orderId: orderId,stateId: stateId, completion: { response in
+            switch response{
+            case .success(let response):
+                completion(response)
+            case .failure( _):
+                completion(nil)
+            }
+        })
+    }
     
     
 }

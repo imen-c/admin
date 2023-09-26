@@ -1,5 +1,5 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.0'
+use_frameworks!
 
 target 'admin' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -8,6 +8,8 @@ target 'admin' do
   # Pods for admin
 pod 'Alamofire'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'AlamofireImage', '~> 4.3'
+
 
 
 end

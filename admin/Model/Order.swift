@@ -32,6 +32,13 @@ struct OrderLine : Decodable{
     var qty: Int?
     var unitPrice: String?
     var subTotal: String?
+    var chosenSize: String?
+    var sizeS: Int = 0
+    var sizeM: Int = 0
+    var sizeL: Int = 0
+    var sizeXL: Int = 0
+    var sizeXXL: Int = 0
+    
     
 }
 struct StateOrder : Decodable{

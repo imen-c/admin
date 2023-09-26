@@ -31,6 +31,9 @@ class OrderDetailController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "OrderDetailCell", bundle: nil), forCellReuseIdentifier: "OrderDetailCell")
+        
+        
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         
@@ -43,6 +46,7 @@ class OrderDetailController: UIViewController {
         self.countryLabel.text = order.address.country
         self.postalCodeLabel.text = order.address.postalCode
         self.cityLabel.text = order.address.city
+        
 
         // Do any additional setup after loading the view.
     }
@@ -66,11 +70,12 @@ class OrderDetailController: UIViewController {
 }
 extension OrderDetailController: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return order.orderLines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCell", for: indexPath) as! OrderDetailCell
+        cell.configure(line: order.orderLines[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

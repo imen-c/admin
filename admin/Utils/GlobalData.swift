@@ -12,5 +12,6 @@ class GlobalData {
     static let shared = GlobalData()
     
     var globalStateOrder: [StateOrder] = []
+    let endPointImage = "https://127.0.0.1:8000/images/recette/"
     
 }

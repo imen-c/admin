@@ -42,6 +42,9 @@ class AddProductViewController: UIViewController, AddProductProtocol {
     
     //MARK: varibales
     var presenter : AddProductPresenter?
+    weak var dismissDelegate: ReloadTableViewDelegate?
+    
+    var categoriesReceived = [Category]()
     
     var activeField: UIView?
     var name: String?
@@ -62,6 +65,8 @@ class AddProductViewController: UIViewController, AddProductProtocol {
         super.viewDidLoad()
         
         self.presenter = AddProductPresenter(view: self)
+        self.categoryPicker.delegate = self
+        self.categoryPicker.dataSource = self
         
         self.imageInputView.configure { (image) in
             self.image = image
@@ -84,9 +89,13 @@ class AddProductViewController: UIViewController, AddProductProtocol {
         
     }
     
+    func configure(categories : [Category]){
+        self.categoriesReceived = categories
+    }
+    
 
     @IBAction func onSendProduct(_ sender: Any) {
-        var product = Product()
+        let product = Product()
         if let image = self.image{
             let imageData: Data = image.jpegData(compressionQuality: 80)!
             let strBase64 = imageData.base64EncodedString()
@@ -107,7 +116,7 @@ class AddProductViewController: UIViewController, AddProductProtocol {
                 product.description = self.descriptionV
                 product.imageName = self.imageName
         
-        presenter?.addOneProduct(item: product, catId: 46)
+        presenter?.addOneProduct(item: product, catId: 52)
 
 
     }
@@ -116,7 +125,10 @@ class AddProductViewController: UIViewController, AddProductProtocol {
         print("  📗 Add Product")
         let alert = UIAlertController(title: "Ajout d'un produit", message: "Le produit a bien été ajouté et le statut est actif.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Fermer", style: .default, handler: { (action) in
-          self.navigationController?.popViewController(animated: true)
+            
+            self.dismissDelegate?.reload()
+            self.navigationController?.popViewController(animated: true)
+            
         }))
         self.present(alert,animated: true)
     }
@@ -141,14 +153,11 @@ extension AddProductViewController: UITextFieldDelegate,UITextViewDelegate{
         self.activeField = textView
         return true
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
+
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField == self.editName{
             guard let name = textField.text else{return}
+            print(name)
             self.name = name
 
         } else if textField == self.editPrice{
@@ -184,11 +193,13 @@ extension AddProductViewController: UITextFieldDelegate,UITextViewDelegate{
        //self.validReport()
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Décrivez ici le produit..."{
+        if textView.text == "Votre description..."{
             textView.text = ""
             textView.textColor = .darkText
         }
     }
+
+
     
         func textViewDidChange(_ textView: UITextView) {
             
@@ -209,6 +220,23 @@ extension AddProductViewController: UITextFieldDelegate,UITextViewDelegate{
         }
 
     
+    
+    
+}
+
+extension AddProductViewController : UIPickerViewDelegate, UIPickerViewDataSource{
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoriesReceived.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoriesReceived[row].name
+       }
     
     
 }

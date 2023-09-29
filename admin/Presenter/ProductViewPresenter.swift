@@ -45,4 +45,18 @@ class ProductViewPresenter{
         })
         
     }
+    func getAllCategories(){
+        
+        DataManager.instance.getAllCategories(completion: {
+            response in
+            guard let response = response else {
+                self.view?.OnGetCategoriesError()
+                print("Error presentre")
+                return
+            }
+            print("SUCCESS PRESENTER")
+            self.view?.OnGetCategoriesSuccess(response: response)
+            
+        })
+    }
 }

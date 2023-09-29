@@ -185,6 +185,22 @@ final class DataManager{
             }
         })
     }
+    func getAllCategories(completion: @escaping ([Category]?) -> Void){
+        ApiService.instance.getAllCategories() { result in
+            switch result {
+            case .success(let list):
+                
+                print(list)
+                completion(list)
+                print("📗 Get categories DATAMANAGER")
+                
+            case .failure(let error):
+                
+                print("Erreur: \(error.localizedDescription)")
+            }
+        }
+    }
+
     
     
 }

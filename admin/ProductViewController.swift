@@ -7,22 +7,30 @@
 
 import UIKit
 
-class ProductViewController: UIViewController {
+class ProductViewController: UIViewController, ReloadTableViewDelegate {
+
+    
 
    
     @IBOutlet weak var bigTitle: UILabel!
     @IBOutlet weak var addProductButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var productList = [Product]()
+    var filteredList = [Product]()
+    var categories = [Category]()
     var presenter : ProductViewPresenter?
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = ProductViewPresenter(view: self)
         self.presenter?.getProducts()
+        self.presenter?.getAllCategories()
+        
+        self.searchBar.delegate = self
+        
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -33,23 +41,43 @@ class ProductViewController: UIViewController {
   
     }
     
+    
     @IBAction func addProduct(_ sender: Any) {
         
         if let addProductVC = storyboard?.instantiateViewController(withIdentifier: "AddProductViewController") as? AddProductViewController{
-            
+            addProductVC.dismissDelegate = self
+            addProductVC.configure(categories: categories)
             navigationController?.pushViewController(addProductVC, animated: true)
             print("GO ADD")
         }
         
     }
+
+    func reload() {
+        print("RELOAD")
+        self.presenter?.getProducts()
+    }
     
     
 
 }
+extension ProductViewController : UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        if searchText.isEmpty {
+               // Réinitialisez filteredList pour afficher tous les produits
+               filteredList = productList
+           } else {
+               filteredList = productList.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+           }
+        self.tableView.reloadData()
+    }
+}
 extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(productList.count, "COUNT COUNT")
-        return productList.count
+       
+        return filteredList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,22 +86,14 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
         cell.contentView.frame.size.width = tableView.bounds.size.width
 
 
-        cell.name.text = productList[indexPath.row].name
-        cell.quantity.text = String(productList[indexPath.row].quantity)
-        cell.sizeS.text = String(productList[indexPath.row].sizeS)
-        cell.sizeM.text = String(productList[indexPath.row].sizeM)
-        cell.sizeL.text = String(productList[indexPath.row].sizeL)
-        cell.sizeXL.text = String(productList[indexPath.row].sizeXL)
-        cell.sizeXXL.text = String(productList[indexPath.row].sizeXXL)
+        cell.name.text = filteredList[indexPath.row].name
+        cell.quantity.text = String(filteredList[indexPath.row].quantity)
         
-        if let price = productList[indexPath.row].price{
+        if let price = filteredList[indexPath.row].price{
             cell.price.text = String(price)
             
         }
-        
-        
-        
-        
+     
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -90,9 +110,9 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             tableView.beginUpdates()
-            var item = productList[indexPath.row]
+            let item = filteredList[indexPath.row]
             self.presenter?.deleteOneProduct(id: item.id!)
-            productList.remove(at: indexPath.row)
+            filteredList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
             tableView.endUpdates()
@@ -101,7 +121,7 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let item = productList[indexPath.row]
+        let item = filteredList[indexPath.row]
         
         let btnModify = UIContextualAction(style: .normal, title: "Mofifier"){(action,view,completion) in
             self.presentModal(item: item)
@@ -117,7 +137,7 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
             alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Oui", style: .destructive, handler: { alert in
                 self.presenter?.deleteOneProduct(id: item.id!)
-                self.productList.remove(at: indexPath.row)
+                self.filteredList.remove(at: indexPath.row)
             }))
             self.present(alert, animated: true, completion: nil)
             
@@ -143,9 +163,18 @@ extension ProductViewController : UITableViewDataSource, UITableViewDelegate{
     
 }
 extension ProductViewController : ProductViewProtocol{
+    func OnGetCategoriesSuccess(response: [Category]) {
+        print("📗 Get category")
+        self.categories = response
+    }
+    
+    func OnGetCategoriesError() {
+        print("📕 Get category")
+    }
+    
     func OnDeleteOneProductSuccess(response: MessageJson) {
         print("📗 Delete product")
-        print(response.message)
+        
         self.tableView.reloadData()
     }
     
@@ -156,6 +185,8 @@ extension ProductViewController : ProductViewProtocol{
     func OnGetProductSuccess(response: [Product]) {
         print("📗 Get Products")
         self.productList = response
+        self.filteredList = productList
+        
         self.tableView.reloadData()
     }
     

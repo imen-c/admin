@@ -10,7 +10,8 @@ import UIKit
 class UserController: UIViewController, UserProtocol {
 
     
-
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
 
     @IBOutlet weak var bigTitle: UILabel!
@@ -31,6 +32,8 @@ class UserController: UIViewController, UserProtocol {
         self.presenter = UserPresenter(view: self)
         self.presenter?.getAllUsers()
         
+        self.searchBar.delegate = self
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "UserCell")
@@ -41,6 +44,7 @@ class UserController: UIViewController, UserProtocol {
     func OnGetAllUsersSuccess(response: [User]) {
         print("📗 get All Users")
         self.userList = response
+        userToShow = userList
         self.tableView.reloadData()
     }
     
@@ -55,12 +59,12 @@ class UserController: UIViewController, UserProtocol {
 }
 extension UserController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userList.count
+        return userToShow.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
-        let item = userList[indexPath.row]
+        let item = userToShow[indexPath.row]
         cell.emailLabel.text = item.email
         cell.lastNameLabel.text = item.name
         if let ord = item.ordersCount{
@@ -75,4 +79,24 @@ extension UserController: UITableViewDelegate, UITableViewDataSource{
     }
     
     
+}
+extension UserController: UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            
+            userToShow = userList
+        } else {
+            userToShow = userList.filter { user in
+                let emailMatch =  user.email!.lowercased().contains(searchText.lowercased())
+                //let nameMatch = user.lastname!.lowercased().contains(searchText.lowercased() )
+                let messageMatch =  "\(user.ordersCount)".contains(searchText.lowercased())
+                let orderMatch = "\(user.messageCount)".contains(searchText.lowercased())
+                
+                return emailMatch || messageMatch || orderMatch
+            }
+           
+        }
+        self.tableView.reloadData()
+    }
 }

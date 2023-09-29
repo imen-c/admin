@@ -10,5 +10,7 @@ import Foundation
 class Category: Decodable{
     
     var id : Int?
+    var name : String?
+    var description : String?
     
 }

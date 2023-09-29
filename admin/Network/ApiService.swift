@@ -306,6 +306,19 @@ final class ApiService{
             }
         }
     }
+    func getAllCategories(completion:@escaping(Result<[Category], Error>) ->Void){
+        let url = endpoint + "getAllCategory"
+        
+        AF.request(url, method: .get).responseDecodable(of:[Category].self) { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(.success(json.rawValue as! [Category]))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
     
     

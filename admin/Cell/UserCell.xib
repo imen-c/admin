@@ -44,7 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YS9-NJ-cgX">
-                        <rect key="frame" x="505" y="13" width="42" height="28"/>
+                        <rect key="frame" x="650" y="13" width="42" height="28"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="42" id="S4Y-4b-XCi"/>
                         </constraints>
@@ -56,9 +56,9 @@
                 <constraints>
                     <constraint firstItem="YS9-NJ-cgX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="3gg-in-CeA"/>
                     <constraint firstAttribute="bottom" secondItem="mep-qx-mVT" secondAttribute="bottom" constant="12" id="DI3-B6-ox4"/>
-                    <constraint firstItem="YS9-NJ-cgX" firstAttribute="leading" secondItem="AlC-lM-Eu3" secondAttribute="trailing" constant="280" id="HMB-83-DYb"/>
                     <constraint firstItem="AlC-lM-Eu3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="Tfe-hF-9Pl"/>
                     <constraint firstAttribute="bottom" secondItem="YS9-NJ-cgX" secondAttribute="bottom" constant="12" id="VAl-0v-MZ6"/>
+                    <constraint firstItem="YS9-NJ-cgX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="650" id="WYD-V6-gFt"/>
                     <constraint firstAttribute="trailing" secondItem="mep-qx-mVT" secondAttribute="trailing" constant="100" id="dB2-US-BJF"/>
                     <constraint firstItem="AlC-lM-Eu3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="eOV-Fs-8ho"/>
                     <constraint firstAttribute="bottom" secondItem="pin-pB-K2Z" secondAttribute="bottom" constant="12" id="lIt-Af-nH0"/>

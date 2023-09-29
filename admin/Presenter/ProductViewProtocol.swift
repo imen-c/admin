@@ -16,6 +16,9 @@ protocol ProductViewProtocol : NSObjectProtocol{
     func OnDeleteOneProductSuccess(response: MessageJson)
     func onDeleteOneProductError()
     
+    func OnGetCategoriesSuccess(response: [Category])
+    func OnGetCategoriesError()
+    
 
   
     

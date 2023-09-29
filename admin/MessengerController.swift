@@ -10,6 +10,7 @@ import UIKit
 class MessengerController: UIViewController , MessengerProtocol, ReloadTableViewDelegate{
 
 
+    @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var userLabel: UILabel!
@@ -17,20 +18,21 @@ class MessengerController: UIViewController , MessengerProtocol, ReloadTableView
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var responseLabel: UILabel!    
    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableVIEW: UITableView!
     
     var presenter: MessengerPresenter?
     var messageReceived = [Message]()
     var messageToShow =  [Message]()
     
-    let refreshControl = UIRefreshControl()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.presenter = MessengerPresenter(view: self)
         self.presenter?.getMessages()
-
+        self.searchBar.delegate = self
         
         self.tableVIEW.dataSource = self
         self.tableVIEW.delegate = self
@@ -151,6 +153,12 @@ extension MessengerController: UITableViewDelegate, UITableViewDataSource{
 
     
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      if(messageToShow.isEmpty){
+          self.emptyLabel.isHidden = false
+          self.emptyLabel.text = "Vous n'avez pas de message(s)"
+      }else{
+          self.emptyLabel.isHidden = true
+      }
             return messageToShow.count
          
         }
@@ -195,7 +203,7 @@ extension MessengerController: UITableViewDelegate, UITableViewDataSource{
         if editingStyle == .delete{
             
             tableView.beginUpdates()
-            var item = messageToShow[indexPath.row]
+            let item = messageToShow[indexPath.row]
             self.presenter?.deleteOneMessage(id: item.id!)
             messageToShow.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -206,8 +214,28 @@ extension MessengerController: UITableViewDelegate, UITableViewDataSource{
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+ 
     
+}
+extension MessengerController : UISearchBarDelegate{
     
-    
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            
+            messageToShow = messageReceived
+        } else {
+            messageToShow = messageReceived.filter { message in
+                let subjectMatch =  message.subject!.lowercased().contains(searchText.lowercased())
+                let userMatch = message.user.email!.lowercased().contains(searchText.lowercased())
+                //let nameMatch = user.lastname!.lowercased().contains(searchText.lowercased() )
+                //let messageMatch =  "\(user.ordersCount)".contains(searchText.lowercased())
+                //let orderMatch = "\(user.messageCount)".contains(searchText.lowercased())
+                
+                return subjectMatch || userMatch
+            }
+           
+        }
+        self.tableVIEW.reloadData()
+    }
+
 }

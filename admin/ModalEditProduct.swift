@@ -140,7 +140,7 @@ class ModalEditProduct: UIViewController, UITextFieldDelegate, UITextViewDelegat
               
 
             
-            presenter?.editProduct(item: productToEdit, catId: 37)
+            presenter?.editProduct(item: productToEdit, catId: 52)
             
             
             

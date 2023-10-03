@@ -40,22 +40,14 @@ class MessengerController: UIViewController , MessengerProtocol, ReloadTableView
         
         
         
-       // self.messageToShow.sort{ !($0.isRead ?? false) && ($1.isRead ?? false)}
+      
         self.tableVIEW.reloadData()
-        //refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         self.segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         self.segmentedControl.selectedSegmentIndex = 1
         
-      //  Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(updateTableView), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(updateTableView), userInfo: nil, repeats: true)
 
     }
-//    @objc func refreshData() {
-//
-//        self.presenter?.getMessages()
-//        refreshControl.endRefreshing()
-//        //tableVIEW.reloadData()
-//
-//    }
     
     func reload() {
         print("RELOAD")
@@ -227,9 +219,6 @@ extension MessengerController : UISearchBarDelegate{
             messageToShow = messageReceived.filter { message in
                 let subjectMatch =  message.subject!.lowercased().contains(searchText.lowercased())
                 let userMatch = message.user.email!.lowercased().contains(searchText.lowercased())
-                //let nameMatch = user.lastname!.lowercased().contains(searchText.lowercased() )
-                //let messageMatch =  "\(user.ordersCount)".contains(searchText.lowercased())
-                //let orderMatch = "\(user.messageCount)".contains(searchText.lowercased())
                 
                 return subjectMatch || userMatch
             }

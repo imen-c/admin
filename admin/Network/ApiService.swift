@@ -320,6 +320,30 @@ final class ApiService{
         }
     }
     
+    func connectAdmin(login: String,password : String, completion: @escaping (Swift.Result<LoginResponse, Error>) -> Void) {
+        print("⬇️ CONNECT")
+        let url = endpoint + "api/login_check"
+        
+        let payload = ["email" : login , "password": password]
+        
+        AF.request(url, method: .post, parameters: payload, encoding: JSONEncoding.default).responseDecodable(of: LoginResponse.self)
+        { response in
+            switch response.result {
+            case .success(let response):
+                
+            
+                completion(.success(response))
+                print("Connexion réussie")
+               
+                print(response)
+            case .failure(let error):
+                
+                print("Erreur de connexion : \(error)")
+
+            }
+        }
+    }
+    
     
     
 }

@@ -23,12 +23,23 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var BigButton: UIButton!
     
+    override func viewWillAppear(_ animated: Bool) {
+     
+       
+                self.navigationController?.navigationBar.isHidden = true
+            
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.firstButton.setTitle("Produits", for: .normal)
 
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     @IBAction func navigateToProduct(_ sender: Any) {

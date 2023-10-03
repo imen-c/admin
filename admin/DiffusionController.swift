@@ -8,6 +8,22 @@
 import UIKit
 
 class DiffusionController: UIViewController {
+    
+    
+    @IBOutlet weak var titleNotif: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var editLabel: UITextField!
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var editText: UITextView!
+    @IBOutlet weak var sendButton: UIButton!
+    
+    
+    @IBOutlet weak var panoramaTitle: UILabel!
+    @IBOutlet weak var image1: InputImageView!
+    @IBOutlet weak var image2: InputImageView!
+    @IBOutlet weak var image3: InputImageView!
+    @IBOutlet weak var recordButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

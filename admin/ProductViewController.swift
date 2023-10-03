@@ -23,6 +23,10 @@ class ProductViewController: UIViewController, ReloadTableViewDelegate {
     var categories = [Category]()
     var presenter : ProductViewPresenter?
     
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = ProductViewPresenter(view: self)

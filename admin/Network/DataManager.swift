@@ -200,6 +200,17 @@ final class DataManager{
             }
         }
     }
+    
+    func connectAdmin(login: String,password: String,  completion: @escaping (LoginResponse?) -> Void){
+        ApiService.instance.connectAdmin(login: login,password: password, completion: { response in
+            switch response{
+            case .success(let response):
+                completion(response)
+            case .failure( _):
+                completion(nil)
+            }
+        })
+    }
 
     
     
